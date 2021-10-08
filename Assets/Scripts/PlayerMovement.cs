@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        //anim = GetComponent<Animator>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKey("w"))
         {
-            rb.AddForce(direction * 10);
+            //rb.AddForce(direction * 10);
             
         }
     }
