@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -24,25 +24,30 @@ public class PlayerMovement : MonoBehaviour
 
     void DoMove()
     {
-        if(Input.GetKey("w"))
+        anim.SetBool("Moving", false);
+        anim.SetBool("MovingB", false);
+
+        if (Input.GetKey("w"))
         {
-            rb.AddRelativeForce(Vector3.forward * 50);
+            anim.SetBool("Moving", true);
+            rb.AddRelativeForce(Vector3.forward * 40);
             
         }
 
         if(Input.GetKey("d"))
         {
-            rb.AddRelativeForce(Vector3.right *30);
+            rb.AddTorque(transform.up * 50);
         }
 
         if(Input.GetKey("a"))
         {
-            rb.AddRelativeForce(Vector3.left *30);
+            rb.AddTorque(transform.up * -50);
         }
 
         if(Input.GetKey("s"))
         {
-            rb.AddRelativeForce(Vector3.back *50);
+            anim.SetBool("MovingB", true);
+            rb.AddRelativeForce(Vector3.back * 40);
         }
     }
 
