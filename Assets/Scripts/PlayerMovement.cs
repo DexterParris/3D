@@ -36,12 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey("d"))
         {
-            rb.AddTorque(transform.up * 50);
+            rb.AddTorque(transform.up * 40);
         }
 
         if(Input.GetKey("a"))
         {
-            rb.AddTorque(transform.up * -50);
+            rb.AddTorque(transform.up * -40);
         }
 
         if(Input.GetKey("s"))
@@ -53,8 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
     void DoJump()
     {
+        anim.SetBool("Jumping", false);
+        
         if(Input.GetKeyDown("space"))
         {
+            anim.SetBool("Jumping", true);
             rb.AddForce(Vector3.up * 2000);
         }
     }
