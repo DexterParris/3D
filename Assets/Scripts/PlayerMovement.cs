@@ -30,35 +30,37 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("w"))
         {
             anim.SetBool("Moving", true);
-            rb.AddRelativeForce(Vector3.forward * 40);
-            
+            rb.AddRelativeForce(Vector3.forward * 50);
         }
 
-        if(Input.GetKey("d"))
+        if(Input.GetKey("d") && anim.GetBool("Jumping") == false)
         {
-            rb.AddTorque(transform.up * 40);
+            rb.AddTorque(transform.up * 60);
         }
 
-        if(Input.GetKey("a"))
+        if(Input.GetKey("a") && anim.GetBool("Jumping") == false )
         {
-            rb.AddTorque(transform.up * -40);
+            rb.AddTorque(transform.up * -60);
         }
 
         if(Input.GetKey("s"))
         {
             anim.SetBool("MovingB", true);
-            rb.AddRelativeForce(Vector3.back * 40);
+            rb.AddRelativeForce(Vector3.back * 50);
         }
     }
 
     void DoJump()
     {
-        anim.SetBool("Jumping", false);
-        
-        if(Input.GetKeyDown("space"))
+
+        if (Input.GetKeyDown("space"))
         {
             anim.SetBool("Jumping", true);
-            rb.AddForce(Vector3.up * 2000);
+            rb.AddForce(Vector3.up * 1000);
+        }
+        else
+        {
+            anim.SetBool("Jumping", false);
         }
     }
 }
