@@ -30,23 +30,23 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("w"))
         {
             anim.SetBool("Moving", true);
-            rb.AddRelativeForce(Vector3.forward * 50);
+            rb.AddRelativeForce(Vector3.forward * 40);
         }
 
         if(Input.GetKey("d") && anim.GetBool("Jumping") == false)
         {
-            rb.AddTorque(transform.up * 60);
+            rb.AddTorque(transform.up * 50);
         }
 
         if(Input.GetKey("a") && anim.GetBool("Jumping") == false )
         {
-            rb.AddTorque(transform.up * -60);
+            rb.AddTorque(transform.up * -50);
         }
 
         if(Input.GetKey("s"))
         {
             anim.SetBool("MovingB", true);
-            rb.AddRelativeForce(Vector3.back * 50);
+            rb.AddRelativeForce(Vector3.back * 40);
         }
     }
 
